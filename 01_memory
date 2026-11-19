@@ -1,0 +1,474 @@
+# Python 基础回忆与跟练
+# ====================
+# 这是一份 Python 代码文件，只是保留了你指定的名字 memory，没有添加后缀。
+# 所有例子独立于外星人项目，不需要安装第三方库。
+#
+# 使用方法：
+# 1. 每次只学一节：读解释 -> 预测示例输出 -> 运行 -> 在 TODO 下亲手写练习。
+# 2. 示例可以直接运行；练习区特意留空，不会因为还没填写而报错。
+# 3. 参考答案都在最下面，并且已注释；先独立写，再向下核对。
+# 4. 直接运行本文件会执行所有示例；input 示例已注释，不会停下来等输入。
+# 5. 修改后按 Ctrl+S 保存，再运行。# 后面的内容是注释，不会执行。
+#
+# 在 VS Code 中：
+# - 如果没有 Python 高亮，点击右下角的语言模式，选择 Python。
+# - 无后缀不影响解释器执行；可在 PowerShell 终端使用：
+#   & 'C:/Users/夏天/AppData/Local/Programs/Python/Python312/python.exe' 'F:/py learining flie/test/memory'
+#
+# 学习路线：
+# 第 1 节：变量、类型、运算和输出
+# 第 2 节：字符串、输入和类型转换
+# 第 3 节：条件判断
+# 第 4 节：for / while 循环
+# 第 5 节：列表、元组、字典和集合
+# 第 6 节：函数、参数和返回值
+# 第 7 节：类、对象、属性和方法
+# 第 8 节：模块、异常和文件读取
+# 最后：用前面的知识写一个小型成绩统计程序
+
+
+# region 第 1 节：变量、类型、运算和输出
+# 变量可以先理解为给数据起的名字。= 是赋值，不是数学中的恒等关系。
+# Python 不要求先声明变量类型，类型由当前赋给它的对象决定。
+# int：整数；float：浮点数，常用来表示小数；str：字符串；bool：布尔值。
+# 布尔值只有 True 和 False，大小写固定。None 表示暂时没有值。
+
+print("\n【第 1 节：变量和运算】")
+notebook_count = 3
+notebook_price = 4.5
+product_name = "笔记本"
+is_available = True
+remark = None
+
+notebook_total = notebook_count * notebook_price
+print(product_name, notebook_total)  # 多个参数用逗号分开，默认以空格连接。
+print(type(notebook_count), type(notebook_price))  # type() 查看类型。
+print(is_available, remark)
+
+practice_count = 2
+practice_count += 1  # 等价于 practice_count = practice_count + 1。
+print("练习次数：", practice_count)
+
+# 运算符：+ 加，- 减，* 乘，/ 除，// 向下取整除法，% 取余，** 乘方。
+print(7 / 2, 7 // 2, 7 % 2, 2 ** 3)
+# 对负数也向下取整，例如 -7 // 2 是 -4，不是 -3。
+
+# 练习 1A：买 4 支笔，每支 2.5 元，付 20 元。
+# 自己定义 quantity、unit_price、paid、total、change，计算总价和找零。
+# 最后输出总价与找零。核对目标：总价 10.0，找零 10.0。
+# TODO：在下面空白处写，不要直接改上面的示例。
+quantity = 4
+unit_price = 2.5
+paid = 20
+total = quantity * unit_price
+change = paid - total
+print ("总价：", total, "找零：", change)
+
+
+
+# 练习 1B：初始 balance = 50，先花掉 12，再存入 5。
+# 使用 -= 和 += 更新余额并输出。核对目标：43。
+# TODO：
+balance = 50
+balance -= 12
+balance += 5
+print("余额：", balance)
+
+
+# endregion
+
+
+# region 第 2 节：字符串、输入和类型转换
+print("\n【第 2 节：字符串与转换】")
+learner_name = "小林"
+study_minutes = 25
+print(f"{learner_name}今天学习了{study_minutes}分钟")
+# f 字符串：引号前加 f，在 {} 中放变量或表达式。
+
+course_name = "Python"
+print(course_name[0])    # 下标从 0 开始，这里是 P。
+print(course_name[-1])   # -1 表示最后一个字符，这里是 n。
+print(course_name[0:3])  # 切片包含起点，不包含终点，这里是 Pyt。
+print(len(course_name))  # len() 返回长度，这里是 6。
+
+number_text = "18"
+print(number_text + "2")       # 字符串相加是在拼接，得到 182。
+print(int(number_text) + 2)    # int() 转成整数后相加，得到 20。
+print(float("3.5") * 2)       # float() 转成浮点数，得到 7.0。
+
+# input() 显示提示并等待键盘输入，按回车提交；返回值始终是字符串。
+# 需要交互时，选中下面三行，按 Ctrl+/ 取消注释，再运行：
+# entered_name = input("请输入称呼：")
+# entered_age = int(input("请输入整数年龄："))
+# print(f"{entered_name}明年{entered_age + 1}岁")
+# 注意：int("3.5") 会报错，float("3.5") 才能处理这种小数字符串。
+
+# 练习 2：有两个字符串 first = "12"、second = "8"。
+# 将它们转成整数，相加后用 f 字符串输出：12 + 8 = 20。
+# 加练：把固定字符串改成 input() 获取，再输入 5 和 9 验证结果。
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 3 节：条件判断
+print("\n【第 3 节：条件判断】")
+temperature = 28
+if temperature >= 30:
+    print("比较热")
+elif temperature >= 20:
+    print("温度适中")
+else:
+    print("比较凉")
+# if 是如果，elif 是否则如果，else 是其他情况。
+# 这一组中，只执行第一个满足条件的分支；以上示例输出“温度适中”。
+# 冒号后换行，块内通常缩进 4 个空格；同一层代码保持相同缩进。
+# 比较：== 等于，!= 不等于，> 大于，>= 大于等于，< 小于，<= 小于等于。
+# = 是赋值；== 才是判断是否相等。
+
+has_ticket = True
+has_id = False
+print(has_ticket and has_id)  # and：两者都成立，结果才成立。
+print(has_ticket or has_id)   # or：至少一个成立，结果就成立。
+print(not has_ticket)         # not：取反。
+
+# 练习 3：定义 score，根据成绩输出等级。
+# 不在 0～100 内：无效成绩；90～100：优秀；60～不足 90：及格；不足 60：不及格。
+# 提示：先排除无效成绩，再从高分向低分判断，使用 if / elif / else。
+# 分别将 score 改为 -1、0、59、60、89、90、100、101，检查分界值。
+# 对应输出：无效成绩、不及格、不及格、及格、及格、优秀、优秀、无效成绩。
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 4 节：for / while 循环
+print("\n【第 4 节：循环】")
+# for 依次从可迭代对象中取出元素。range() 常用来提供整数序列。
+# range(起点, 终点, 步长)：包含起点，不包含终点。
+# range(3) 依次提供 0、1、2；range(1, 4) 依次提供 1、2、3。
+for number in range(1, 4):
+    print("本轮数字：", number)
+
+sum_result = 0
+for number in range(1, 4):
+    sum_result += number
+print("1 到 3 的和：", sum_result)
+# 循环中 sum_result 依次变成 1、3、6；初始值必须放在循环外。
+
+# while 在每次执行前检查条件；条件为 True 就继续。
+remaining = 3
+while remaining > 0:
+    print("还剩：", remaining)
+    remaining -= 1  # 如果忘记更新，条件可能一直成立，导致死循环。
+# 遇到死循环可在终端按 Ctrl+C 中断。
+# break 结束整个循环；continue 跳过本轮剩余代码，进入下一轮。
+
+# 练习 4A：用 for 和 range，计算 1～10 中所有偶数之和。
+# 可以先遍历 1～10，再用 number % 2 == 0 判断偶数。
+# 核对目标：30。注意：range(1, 10) 不包含 10。
+# TODO：
+
+
+
+# 练习 4B：用 while 输出 5、4、3、2、1，最后再输出“结束”。
+# “结束”只输出一次，它应该缩进在循环里，还是放在循环外？
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 5 节：列表、元组、字典和集合
+print("\n【第 5 节：容器】")
+# list 列表：按顺序保存多个元素，可以增删改；下标从 0 开始。
+scores = [72, 85, 91]
+scores.append(80)      # append() 在列表末尾添加一个元素。
+scores[0] = 75        # 修改第一个元素。
+print(scores, scores[-1], len(scores))
+for score_value in scores:
+    print("成绩：", score_value)
+# 遍历列表可以直接得到元素，不一定需要使用下标。
+# sum(scores) 求和；sum(scores) / len(scores) 可求非空数值列表的平均值。
+# 注意：b = a 不会复制列表；需要浅复制时可以写 b = a.copy()。
+
+# tuple 元组：元素位置不能重新赋值，适合表达一组固定数据。
+point = (3, 4)
+point_x, point_y = point  # 解包：将两个元素分别赋给两个变量。
+print("坐标：", point_x, point_y)
+
+# dict 字典：通过键查找值，而不是依靠元素的排列位置。
+student = {"name": "小周", "score": 88}
+print(student["name"])
+student["score"] = 90
+student["passed"] = True
+for field_name, field_value in student.items():
+    print(field_name, field_value)
+
+# set 集合：元素不重复，不能像列表那样使用下标取元素。
+# 不依赖集合的显示顺序；空集合用 set() 创建，{} 创建的是空字典。
+course_set = {"数学", "英语", "数学"}
+print("不同课程数：", len(course_set))  # 结果为 2。
+
+# 练习 5A：建立 prices = [8, 12, 5]，末尾添加 15。
+# 输出数量、总价和平均价格。核对目标：4、40、10.0。
+# TODO：
+
+
+
+# 练习 5B：建立表示一本书的字典，包含 title、price、stock 三个键。
+# 初始值分别为“Python入门”、39.0、5；卖出一本后，将 stock 减 1。
+# 输出“Python入门还剩4本”，不要把 4 直接写死在输出中。
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 6 节：函数、参数和返回值
+print("\n【第 6 节：函数】")
+# 函数是取了名字、可重复调用的一段代码。def 定义，调用时才执行函数体。
+# 定义中的 length、width 是形参；调用时传入的 3、4 是实参。
+# return 将结果交给调用处，并结束本次函数调用。
+def rectangle_area(length, width):
+    area = length * width
+    return area
+
+
+area_result = rectangle_area(3, 4)
+print("长方形面积：", area_result)
+# print() 负责显示；return 负责返回，两者不同。
+# 如果把函数里的 return area 改成 print(area)，函数会显示面积，
+# 但没有显式 return，调用结果会是 None，area_result 就不再是 12。
+# 函数内部创建的普通变量是局部变量，一般只在函数内部使用。
+
+# 练习 6：定义 calculate_average(values)，接收成绩列表并返回平均值。
+# 暂时约定 values 是非空数值列表；返回计算结果，不要只在函数内 print。
+# 调用 calculate_average([60, 80, 100])，在函数外输出结果，目标是 80.0。
+# 加练：遇到空列表时返回 None，避免除以 0。
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 7 节：类、对象、属性和方法
+print("\n【第 7 节：类和对象】")
+# 类描述一类对象共有的数据和行为；调用类可以创建具体对象。
+# 属性保存对象的数据；方法是定义在类中的函数，描述对象的行为。
+class Student:
+    def __init__(self, name, score):
+        # __init__ 在实例创建时初始化属性；self 指向当前实例。
+        self.name = name
+        self.score = score
+
+    def introduce(self):
+        return f"我是{self.name}，成绩是{self.score}分"
+
+
+first_student = Student("小陈", 86)
+second_student = Student("小吴", 92)
+print(first_student.name)          # 读取属性。
+print(first_student.introduce())  # 调用方法；不需要手动传入 self。
+print(second_student.introduce())
+# first_student 和 second_student 是不同的对象，各有自己的 name 和 score。
+
+# 练习 7：定义一个 Rectangle 类，初始化时接收 length 和 width。
+# 定义 area(self) 方法，返回长乘宽。
+# 创建一个长为 5、宽为 3 的对象，并输出它的面积。核对目标：15。
+# TODO：
+
+
+
+# endregion
+
+
+# region 第 8 节：模块、异常和文件读取
+print("\n【第 8 节：模块、异常和文件】")
+# 模块可以理解为组织代码的单元；用 import 导入后，访问其中的内容。
+import math
+from pathlib import Path
+
+print("9 的平方根：", math.sqrt(9))
+# math 是标准库模块，不需要另行安装。
+# import math 后写 math.sqrt(...)；from math import sqrt 后可直接写 sqrt(...)。
+
+# 异常表示执行中出现的问题；只捕获预期要处理的错误，不要随意忽略所有异常。
+try:
+    invalid_number = int("abc")
+except ValueError:
+    print("abc 不能转换成整数")
+
+# 读取当前这份讲义，不生成文件，不改动其他资料。
+# __file__ 表示当前代码文件的路径，Path 用来方便地操作路径。
+# with 会在代码块退出时关闭文件；r 表示只读；UTF-8 指定中文文本的编码。
+source_path = Path(__file__)
+with source_path.open("r", encoding="utf-8") as source_file:
+    first_line = source_file.readline()
+print("本文件的第一行：", first_line.strip())
+# read() 读取全部内容；readline() 读取一行；strip() 去掉首尾的空白字符。
+# w 模式会写入并覆盖已有内容，学习时不要拿原始资料做写入试验。
+
+# 练习 8：定义 text = "25"，尝试把它转换为整数，并输出它的两倍。
+# 如果转换失败，输出“请输入整数”。用 try / except ValueError 实现。
+# 分别用 "25"、"abc"、"3.5" 测试，目标：50、请输入整数、请输入整数。
+# TODO：
+
+
+
+# endregion
+
+
+# region 综合跟练：成绩统计
+# 前面练完后，再从空白处独立写一个小程序。
+# 已知 practice_scores = [58, 76, 90, 63, 45]。
+# 要求：
+# 1. 输出人数、平均分、最高分、最低分。
+# 2. 用循环统计及格人数，约定 >= 60 分及格。
+# 3. 定义一个函数，接收成绩列表，返回及格人数；在函数外输出。
+# 4. 加练：读取用户输入的多门成绩，输入 q 结束；非法输入不计入成绩。
+#    注意处理没有录入任何成绩、分数不在 0～100 内的情况。
+# 基础任务核对目标：5 人、66.4 分、90 分、45 分、3 人及格。
+# 提示：最高值 max()、最低值 min()；先完成固定列表版本，再考虑输入。
+# TODO：
+
+
+
+# endregion
+
+
+# region 参考答案：先完成对应练习，再展开核对
+# 答案作为注释放在这里，不参与运行；你的写法不必与答案完全相同。
+# 如需运行某份答案，只选中相应代码行，再按 Ctrl+/ 取消注释。
+#
+# 练习 1A
+# quantity = 4
+# unit_price = 2.5
+# paid = 20
+# total = quantity * unit_price
+# change = paid - total
+# print(total, change)
+#
+# 练习 1B
+# balance = 50
+# balance -= 12
+# balance += 5
+# print(balance)
+#
+# 练习 2
+# first = "12"
+# second = "8"
+# answer = int(first) + int(second)
+# print(f"{first} + {second} = {answer}")
+#
+# 练习 3
+# score = 78
+# if score < 0 or score > 100:
+#     print("无效成绩")
+# elif score >= 90:
+#     print("优秀")
+# elif score >= 60:
+#     print("及格")
+# else:
+#     print("不及格")
+#
+# 练习 4A
+# even_total = 0
+# for number in range(1, 11):
+#     if number % 2 == 0:
+#         even_total += number
+# print(even_total)
+#
+# 练习 4B
+# count = 5
+# while count > 0:
+#     print(count)
+#     count -= 1
+# print("结束")
+#
+# 练习 5A
+# prices = [8, 12, 5]
+# prices.append(15)
+# print(len(prices), sum(prices), sum(prices) / len(prices))
+#
+# 练习 5B
+# book = {"title": "Python入门", "price": 39.0, "stock": 5}
+# book["stock"] -= 1
+# print(f"{book['title']}还剩{book['stock']}本")
+#
+# 练习 6（包含空列表处理）
+# def calculate_average(values):
+#     if len(values) == 0:
+#         return None
+#     return sum(values) / len(values)
+#
+# print(calculate_average([60, 80, 100]))
+# print(calculate_average([]))
+#
+# 练习 7
+# class Rectangle:
+#     def __init__(self, length, width):
+#         self.length = length
+#         self.width = width
+#
+#     def area(self):
+#         return self.length * self.width
+#
+# rectangle = Rectangle(5, 3)
+# print(rectangle.area())
+#
+# 练习 8
+# text = "25"
+# try:
+#     value = int(text)
+#     print(value * 2)
+# except ValueError:
+#     print("请输入整数")
+#
+# 综合跟练（固定列表版本）
+# def count_passed(values):
+#     passed_count = 0
+#     for value in values:
+#         if value >= 60:
+#             passed_count += 1
+#     return passed_count
+#
+# practice_scores = [58, 76, 90, 63, 45]
+# print("人数：", len(practice_scores))
+# print("平均分：", sum(practice_scores) / len(practice_scores))
+# print("最高分：", max(practice_scores))
+# print("最低分：", min(practice_scores))
+# print("及格人数：", count_passed(practice_scores))
+#
+# 综合加练参考：在上面的 count_passed 定义之后运行。
+# entered_scores = []
+# while True:
+#     entered_text = input("请输入一门成绩，输入 q 结束：").strip()
+#     if entered_text.lower() == "q":
+#         break
+#     try:
+#         entered_score = float(entered_text)
+#     except ValueError:
+#         print("请输入数字或 q")
+#         continue
+#     if not 0 <= entered_score <= 100:
+#         print("成绩必须在 0～100 之间")
+#         continue
+#     entered_scores.append(entered_score)
+#
+# if len(entered_scores) == 0:
+#     print("没有录入成绩")
+# else:
+#     print("人数：", len(entered_scores))
+#     print("平均分：", sum(entered_scores) / len(entered_scores))
+#     print("最高分：", max(entered_scores))
+#     print("最低分：", min(entered_scores))
+#     print("及格人数：", count_passed(entered_scores))
+# endregion

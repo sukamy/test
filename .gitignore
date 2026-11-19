@@ -1,0 +1,13 @@
+# Python 虚拟环境
+.venv/
+
+# Python 自动生成的缓存
+__pycache__/
+*.py[cod]
+
+# 本机编辑器配置
+.idea/
+.vscode/
+
+# 本地环境变量文件，可能包含密钥
+.env
